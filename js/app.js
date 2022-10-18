@@ -1,7 +1,7 @@
 const productData = [
     {
         index: '01',
-        name: 'yellow tracksuite',
+        name: 'yellow tracksuit',
         image: 'img1.jpg',
         des: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde, tenetur tempora eveniet voluptas inventore!'
 
@@ -10,14 +10,14 @@ const productData = [
         index: '02',
         name: 'designer outfit',
         image: 'img2.jpg',
-        des: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde, tenetur tempora eveniet voluptas inventore!'
+        des: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo under'
 
     },
     {
         index: '03',
         name: 'chilling mood',
         image: 'img3.jpg',
-        des: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde, tenetur tempora eveniet voluptas inventore!'
+        des: 'Lorem ipsum dolor sit amet, tenetur tempora eveniet voluptas inventore!'
 
     },
 ]
@@ -28,22 +28,44 @@ let smImg = document.querySelector('.sm-product-img')
 let productIndex = document.querySelector('.product-index')
 let smProductDes = document.querySelector('.sm-product-des')
 
-let productImgContainer = document.querySelector('.produc-img-container')
+let productImgContainer = document.querySelector('.product-img-container')
 let productImg = document.querySelector('.product-img')
-let backdroImg = document.querySelector('.backdrop-img')
+let backdropImg = document.querySelector('.backdrop-img')
 
 let productDetail = document.querySelector('.product-detail')
 let productName = document.querySelector('.product-name')
 let productDes = document.querySelector('.product-des')
 
-let currentProduc = 0
+let currentProduct = 0
 
 nxtBtn.addEventListener('click', () => {
-    if(currentProduc >= productData.length -1){
-        currentProduc = 0
+    if(currentProduct >= productData.length -1){
+        currentProduct = 0
     }else{
-        currentProduc++
+        currentProduct++
     }
-    productIndex.innerHTML = productData[currentProduc].index
-    smProductDes.innerHTML = productData[currentProduc].des.slice(0, 80)
+    productIndex.innerHTML = productData[currentProduct].index
+    smProductDes.innerHTML = productData[currentProduct].des.slice(0, 80)
+
+    smImgContainer.classList.add('slide')
+    productImgContainer.classList.add('slide')
+    backdropImg.classList.add('fade')
+    productDetail.classList.add('fade')
+
+    setTimeout(() => {
+       productName.innerHTML = productData[currentProduct].name 
+       productDes.innerHTML = productData[currentProduct].des
+       smImg.src = productImg.src = backdropImg.src = 
+       `
+       img/${productData[currentProduct].image}
+       `
+    }, 500)
+    setTimeout(() => {
+        smImgContainer.classList.remove('slide')
+        productImgContainer.classList.remove('slide')
+        backdropImg.classList.remove('fade')
+        productDetail.classList.remove('fade')
+    }, 500)
 })
+
+    
