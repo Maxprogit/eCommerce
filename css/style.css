@@ -70,7 +70,7 @@ body {
 
 .sm-product-img {
     width: 100%;
-    height: 15vw;
+    height: 25vw;
     object-fit: cover;
 }
 
@@ -102,8 +102,8 @@ body {
 }
 
 .right-side {
-    width: 80vw;
-    height: 100vw;
+    width: 100vw;
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -192,7 +192,7 @@ body {
     left: -100;
     width: 100%;
     height: 100%;
-    background: #000;
+    /* background: #000; */
     animation: slide-left 1s linear 1;
 }
 
